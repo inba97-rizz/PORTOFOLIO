@@ -16,18 +16,20 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #475569;
-      --accent: #0ea5e9;
-      --dark-bg: #0f172a;
-      --darker-bg: #0b1220;
-      --card-bg: #1e293b;
-      --card-border: #334155;
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #94a3b8;
+      --primary: #f59e0b;
+      --primary-dark: #d97706;
+      --secondary: #4b5563;
+      --accent: #fbbf24;
+      --light-bg: #ffffff;
+      --lighter-bg: #fefefe;
+      --card-bg: #ffffff;
+      --card-border: #e5e7eb;
+      --text-primary: #1f2937;
+      --text-secondary: #4b5563;
+      --text-muted: #6b7280;
       --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
 
     * {
@@ -42,7 +44,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--darker-bg);
+      background-color: var(--lighter-bg);
       color: var(--text-primary);
       line-height: 1.6;
       overflow-x: hidden;
@@ -55,16 +57,17 @@
 
     /* Navigation */
     #mainNav {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
       padding: 1rem 0;
       border-bottom: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
     }
 
     #mainNav.scrolled {
       padding: 0.75rem 0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     .navbar-brand {
@@ -111,7 +114,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      background: linear-gradient(135deg, #fefefe 0%, #fef7e5 100%);
       position: relative;
       overflow: hidden;
     }
@@ -123,7 +126,7 @@
       height: 500px;
       border-radius: 50%;
       background: var(--primary);
-      opacity: 0.03;
+      opacity: 0.05;
       top: -250px;
       right: -250px;
       z-index: 0;
@@ -136,7 +139,7 @@
       height: 300px;
       border-radius: 50%;
       background: var(--accent);
-      opacity: 0.03;
+      opacity: 0.05;
       bottom: -150px;
       left: -150px;
       z-index: 0;
@@ -165,7 +168,7 @@
       color: white;
       font-size: 3.5rem;
       font-weight: 700;
-      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
     }
 
     .avatar-ring {
@@ -248,16 +251,17 @@
       overflow: hidden;
       transition: all 0.3s ease;
       height: 100%;
+      box-shadow: var(--shadow);
     }
 
     .card-custom:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      box-shadow: var(--shadow-lg);
       border-color: var(--primary);
     }
 
     .card-header-custom {
-      background: rgba(30, 41, 59, 0.7);
+      background: rgba(255, 255, 255, 0.7);
       border-bottom: 1px solid var(--card-border);
       padding: 1.5rem;
     }
@@ -287,7 +291,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.9));
+      background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.7));
       display: flex;
       align-items: flex-end;
       padding: 1.5rem;
@@ -309,7 +313,7 @@
     }
 
     .portfolio-info p {
-      color: var(--text-secondary);
+      color: #e5e7eb;
       margin-bottom: 1rem;
     }
 
@@ -322,11 +326,13 @@
       border-radius: 6px;
       font-weight: 600;
       transition: all 0.3s ease;
+      box-shadow: var(--shadow);
     }
 
     .btn-primary-custom:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
     }
 
     .btn-outline-custom {
@@ -345,23 +351,41 @@
       transform: translateY(-2px);
     }
 
-    /* Badges */
-    .badge-tech {
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--primary);
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      margin-right: 0.5rem;
+    /* Plain Text Technologies */
+    .tech-text {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.8;
       margin-bottom: 0.5rem;
-      display: inline-block;
-      border: 1px solid rgba(37, 99, 235, 0.2);
+    }
+
+    .tech-text strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .tech-list {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .tech-list-item {
+      margin-bottom: 0.3rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .tech-list-item:before {
+      content: "•";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
     }
 
     /* Footer */
     .footer {
-      background: var(--dark-bg);
+      background: #fef7e5;
       padding: 3rem 0;
       border-top: 1px solid var(--card-border);
     }
@@ -373,10 +397,11 @@
       width: 40px;
       height: 40px;
       border-radius: 6px;
-      background: var(--card-bg);
+      background: white;
       color: var(--text-secondary);
       margin: 0 0.5rem;
       transition: all 0.3s ease;
+      box-shadow: var(--shadow);
     }
 
     .social-links a:hover {
@@ -387,20 +412,25 @@
 
     /* Contact Form */
     .form-control {
-      background: var(--card-bg);
+      background: white;
       border: 1px solid var(--card-border);
       color: var(--text-primary);
     }
 
     .form-control:focus {
-      background: var(--card-bg);
+      background: white;
       border-color: var(--primary);
       color: var(--text-primary);
-      box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+      box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.25);
     }
 
     .form-floating>label {
       color: var(--text-muted);
+    }
+
+    /* Alternating Section Backgrounds */
+    .section-alt {
+      background-color: #fef7e5;
     }
 
     /* Responsive */
@@ -442,7 +472,7 @@
         <span>Inbazhagan K</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"><i class="fas fa-bars text-white"></i></span>
+        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
@@ -552,7 +582,7 @@
   </section>
 
   <!-- Skills Section -->
-  <section class="section bg-dark" id="skills" style="background-color: var(--dark-bg) !important;">
+  <section class="section section-alt" id="skills">
     <div class="container">
       <h2 class="section-title">Technical Skills</h2>
       <p class="section-subtitle">Technologies and tools I work with</p>
@@ -657,20 +687,8 @@
       
       <div class="mt-5" data-aos="fade-up">
         <h3 class="text-center mb-4">Tools & Technologies</h3>
-        <div class="d-flex flex-wrap justify-content-center">
-          <span class="badge-tech">AWS</span>
-          <span class="badge-tech">Docker</span>
-          <span class="badge-tech">MongoDB</span>
-          <span class="badge-tech">HDFS</span>
-          <span class="badge-tech">Git</span>
-          <span class="badge-tech">Bootstrap</span>
-          <span class="badge-tech">React</span>
-          <span class="badge-tech">MySQL</span>
-          <span class="badge-tech">PostgreSQL</span>
-          <span class="badge-tech">REST APIs</span>
-          <span class="badge-tech">Scikit-learn</span>
-          <span class="badge-tech">Pandas</span>
-          <span class="badge-tech">NumPy</span>
+        <div class="tech-list">
+          <p class="text-center">AWS, Docker, MongoDB, HDFS, Git, Bootstrap, React, MySQL, PostgreSQL, REST APIs, Scikit-learn, Pandas, NumPy</p>
         </div>
       </div>
     </div>
@@ -699,9 +717,7 @@
               <h5>Hybrid Lane Detection</h5>
               <p class="text-muted">Advanced lane detection system using OpenCV and Python for autonomous vehicle applications.</p>
               <div class="mt-3">
-                <span class="badge-tech">OpenCV</span>
-                <span class="badge-tech">Python</span>
-                <span class="badge-tech">Computer Vision</span>
+                <p class="tech-text"><strong>Technologies:</strong> OpenCV, Python, Computer Vision</p>
               </div>
             </div>
           </div>
@@ -723,10 +739,7 @@
               <h5>SAWL-Net</h5>
               <p class="text-muted">Multi-magnification breast cancer classifier using DenseNet121 and transfer learning.</p>
               <div class="mt-3">
-                <span class="badge-tech">TensorFlow</span>
-                <span class="badge-tech">Keras</span>
-                <span class="badge-tech">DenseNet121</span>
-                <span class="badge-tech">Transfer Learning</span>
+                <p class="tech-text"><strong>Technologies:</strong> TensorFlow, Keras, DenseNet121, Transfer Learning</p>
               </div>
             </div>
           </div>
@@ -748,10 +761,7 @@
               <h5>Student Projects Collection</h5>
               <p class="text-muted">A curated collection of 25+ projects completed during college including full-stack apps and ML solutions.</p>
               <div class="mt-3">
-                <span class="badge-tech">Python</span>
-                <span class="badge-tech">Django</span>
-                <span class="badge-tech">Machine Learning</span>
-                <span class="badge-tech">Web Development</span>
+                <p class="tech-text"><strong>Technologies:</strong> Python, Django, Machine Learning, Web Development</p>
               </div>
             </div>
           </div>
@@ -761,7 +771,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="section" id="contact">
+  <section class="section section-alt" id="contact">
     <div class="container">
       <h2 class="section-title">Get In Touch</h2>
       <p class="section-subtitle">I'm always open to discussing new opportunities and projects</p>
